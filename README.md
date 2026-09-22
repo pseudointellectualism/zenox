@@ -1,6 +1,6 @@
-# Zenox
+# Zenox - The Orginal
 
-A open source PLAYER and UI !
+# A open source PLAYER and UI !
 
 A streaming front end built on Next.js. It browses a film and television catalogue
 from TMDB, plays back through endpoints you configure yourself, and syncs watch
