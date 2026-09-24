@@ -1,6 +1,9 @@
-# Zenox - The Orginal
+# Zenox - The Original
 
-# A open source PLAYER and UI !
+# The full PLAYER and UI source !
+
+> Readable, not reusable. See [LICENSE](LICENSE): all rights reserved, and using
+> any of this needs permission first.
 
 A streaming front end built on Next.js. It browses a film and television catalogue
 from TMDB, plays back through endpoints you configure yourself, and syncs watch
@@ -66,6 +69,18 @@ credentials, so with nothing configured every login attempt fails.
 `DEPLOY.md` walks through a single Ubuntu server from nothing to HTTPS, using
 Caddy and systemd, including an optional hook that lets the admin panel redeploy
 the app without an SSH session.
+
+## Licence
+
+All rights reserved. This code is published to be read, not to be used. You may
+not use, copy, modify, host, deploy, or redistribute any part of it without
+written permission first. Open an issue to ask.
+
+GitHub's Terms of Service let any GitHub user fork a public repository, and that
+is not something this notice can switch off. Forking grants no right to use the
+code, and the terms above apply to the contents of a fork just as they do here.
+
+Full text in [LICENSE](LICENSE).
 
 ## Attribution
 
