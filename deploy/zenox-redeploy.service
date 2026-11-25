@@ -1,0 +1,31 @@
+# Runs one redeploy, triggered by zenox-redeploy.path.
+#
+#   sudo cp /opt/zenox/deploy/zenox-redeploy.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#
+# Never enabled directly and never started by hand in normal use: the path unit
+# is what fires it. Running it manually is a perfectly good way to test, though.
+#
+# Deliberately unhardened, unlike zenox.service. This one has to restart another
+# unit and drop to the app user, so it needs the privileges the application is
+# denied. That asymmetry is the design: the exposed process is confined, and the
+# thing with power takes no input from it.
+
+[Unit]
+Description=Zenox redeploy (pull, build, restart)
+Documentation=https://github.com/pseudointellectualism/zenox
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/zenox-redeploy
+
+# A cold npm ci plus a Next build on a small VPS is minutes. The ceiling is
+# generous so a slow build is never mistaken for a hung one, and it matches the
+# staleness cutoff the panel uses to release its lock.
+TimeoutStartSec=1800
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=zenox-redeploy

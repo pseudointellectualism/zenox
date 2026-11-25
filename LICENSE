@@ -1,0 +1,27 @@
+Copyright (c) 2026 pseudointellectualism. All rights reserved.
+
+This source code is published so that it can be read. It is not open source,
+and no licence to use it is granted by the fact that it is publicly visible.
+
+You may not use, copy, modify, merge, publish, distribute, sublicense, sell,
+host, deploy, or create derivative works from any part of this repository, in
+whole or in part, for any purpose, commercial or otherwise, without prior
+written permission from the copyright holder.
+
+To ask for permission, open an issue on this repository.
+
+One exception applies, and it is not one the copyright holder can remove.
+GitHub's Terms of Service grant every GitHub user the right to view this
+repository and to fork it within GitHub. Forking under that grant carries no
+right to use, run, modify, redistribute, or publish the code, and everything
+above still applies to the contents of any fork.
+
+Third-party dependencies, including those listed in package.json, remain under
+their own licences. Nothing here alters them.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

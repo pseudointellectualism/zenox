@@ -1,0 +1,14 @@
+node_modules/
+.next/
+.env
+.env.local
+.env.*.local
+*.tsbuildinfo
+# Keep the config template; real env files stay ignored.
+!.env.example
+
+scratch/
+server-scraper/
+server-scraper*/
+data/
+

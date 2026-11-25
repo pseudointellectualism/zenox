@@ -1,0 +1,22 @@
+# Watches for the marker the admin panel drops when an owner presses Redeploy.
+#
+#   sudo cp /opt/zenox/deploy/zenox-redeploy.path /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now zenox-redeploy.path
+#
+# This is the whole privilege boundary. The application runs with
+# NoNewPrivileges=yes and cannot call systemctl or sudo, so the only thing it
+# can do is create an empty file in the one directory it is allowed to write.
+# systemd notices and runs a fixed script. The request carries no arguments,
+# which is what keeps "redeploy" from ever becoming "run this".
+
+[Unit]
+Description=Watch for Zenox admin-panel redeploy requests
+Documentation=https://github.com/pseudointellectualism/zenox
+
+[Path]
+PathExists=/opt/zenox/data/deploy.request
+Unit=zenox-redeploy.service
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,10 @@
+# Shell scripts and systemd units are consumed by Linux, which treats a
+# trailing carriage return as part of the token. A CRLF shebang fails as
+# "/usr/bin/env: bash\r: No such file or directory", and a CRLF unit file gives
+# equally unhelpful parse errors. Contributors on Windows have core.autocrlf
+# enabled by default, so pin these rather than relying on everyone's local
+# configuration being kind.
+*.sh text eol=lf
+*.service text eol=lf
+*.path text eol=lf
+Caddyfile text eol=lf

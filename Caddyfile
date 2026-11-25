@@ -1,0 +1,41 @@
+# Caddy fetches and renews Let's Encrypt certificates automatically. Every
+# hostname below must already resolve to this server, or issuance fails for
+# that name — add the DNS record first, then the hostname here.
+#
+#   sudo cp /opt/zenox/Caddyfile /etc/caddy/Caddyfile
+#   sudo systemctl reload caddy
+
+{
+	email ops@example.com
+}
+
+# Public site.
+example.com {
+	encode zstd gzip
+
+	reverse_proxy 127.0.0.1:3000 {
+		# lib/server/streamSecurity.ts reads these to identify the real client
+		# behind the proxy. Without them every viewer looks like 127.0.0.1 and
+		# IP-bound playback tokens stop distinguishing anyone.
+		header_up X-Real-IP {remote_host}
+		header_up X-Forwarded-Proto {scheme}
+	}
+}
+
+# Admin panel. This is the only host where /admin exists at all; the public
+# site returns 404 for that path unconditionally. Access is a password login
+# checked against an scrypt digest, rate limited per client IP.
+admin.example.com {
+	encode zstd gzip
+
+	reverse_proxy 127.0.0.1:3000 {
+		header_up X-Real-IP {remote_host}
+		header_up X-Forwarded-Proto {scheme}
+	}
+}
+
+# Uncomment once a DNS record for www exists. Without one Caddy cannot get a
+# certificate for it and retries in a loop.
+# www.example.com {
+# 	redir https://example.com{uri} permanent
+# }
